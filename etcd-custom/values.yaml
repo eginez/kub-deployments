@@ -1,20 +1,21 @@
-replicas: 2
+etcd:
+  replicas: 2
 
-service:
-  type: LoadBalancer
-  client:
-    port: 2379
-  peer:
-    port: 2380
+  service:
+    type: ClusterIP
+    client:
+      port: 2379
+    peer:
+      port: 2380
 
-storage:
-  requestedSize: 2Gi
+  storage:
+    requestedSize: 3Gi
 
-settings:
-  https:
-    enabled: false
-rbac:
-  create: false
+  settings:
+    https:
+      enabled: false
+  rbac:
+    create: false
 
-serviceAccount:
-  create: false
+  serviceAccount:
+    create: false
